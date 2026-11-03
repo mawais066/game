@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TypePulse Pro - Professional Keyboard Precision, Touch-Typing & Letter Recognition Arena featuring Bubbles Mode and KeyMagnet Practice.">
+    <title>TypePulse Pro | Keyboard Precision & Reflex Arena</title>
+    
+    <!-- Modern Typography: Plus Jakarta Sans for UI & JetBrains Mono for Keys/Stats -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-root" class="app-layout">
+        <!-- Site Header -->
+        <header class="site-header">
+            <div class="header-container">
+                <div class="brand-cluster" id="btn-brand-home" role="button" tabindex="0" title="Return to Dashboard">
+                    <div class="brand-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+                            <line x1="6" y1="8" x2="6" y2="8"></line>
+                            <line x1="10" y1="8" x2="10" y2="8"></line>
+                            <line x1="14" y1="8" x2="14" y2="8"></line>
+                            <line x1="18" y1="8" x2="18" y2="8"></line>
+                            <line x1="6" y1="12" x2="6" y2="12"></line>
+                            <line x1="18" y1="12" x2="18" y2="12"></line>
+                            <line x1="7" y1="16" x2="17" y2="16"></line>
+                        </svg>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-title">TypePulse<span class="accent-text">Pro</span></span>
+                        <span class="brand-tagline">Keyboard Mastery & Reflex Arena</span>
+                    </div>
+                </div>
+
+                <div class="header-nav-actions">
+                    <button id="btn-how-to-play" class="nav-btn" title="View Instructions & Rules">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        <span>How to Play</span>
+                    </button>
+                    
+                    <button id="btn-sound-toggle" class="nav-btn" title="Toggle Sound (Mute/Unmute)">
+                        <svg id="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <svg id="icon-sound-off" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                            <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>
+                            <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path>
+                        </svg>
+                        <span id="sound-label">Audio On</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Content Wrapper -->
+        <main class="main-viewport">
+            
+            <!-- VIEW 1: HOME & MODE SELECTION -->
+            <section id="view-home" class="view-panel active">
+                <div class="home-hero">
+                    <div class="badge-pill">Professional Typing Suite</div>
+                    <h1 class="hero-heading">Engineered for Keyboard <span class="gradient-text">Precision & Speed</span></h1>
+                    <p class="hero-subtitle">
+                        Select a training module below to refine reflex response times, build tactile muscle memory, and track millisecond reaction latency.
+                    </p>
+                </div>
+
+                <!-- Game Selection Cards -->
+                <div class="mode-grid">
+                    <!-- MODE A: BUBBLES CARD -->
+                    <div class="mode-card" id="card-mode-bubbles">
+                        <div class="card-badge mode-a-badge">MODE A</div>
+                        <div class="card-header">
+                            <div class="mode-visual-preview preview-bubbles">
+                                <div class="floating-bubble-demo b1">A</div>
+                                <div class="floating-bubble-demo b2">S</div>
+                                <div class="floating-bubble-demo b3">D</div>
+                            </div>
+                            <h2 class="mode-name">Bubbles: Letter Recognition</h2>
+                            <p class="mode-description">
+                                Letters rise from the depths inside floating pressure bubbles. Recognize and strike matching keys before bubbles reach the upper boundary.
+                            </p>
+                        </div>
+
+                        <div class="mode-feature-list">
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>5+ dynamic simultaneous targets</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Dynamic speed escalation during play</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Penalty for incorrect strikes &amp; miss survival limit</span>
+                            </div>
+                        </div>
+
+                        <!-- Mode Options -->
+                        <div class="mode-configuration">
+                            <label class="config-label">Difficulty Level (Speed &amp; Goal):</label>
+                            <div class="segmented-control" id="bubbles-difficulty-selector">
+                                <button type="button" class="segment-btn active" data-diff="easy">
+                                    <span>Easy</span>
+                                    <small>Speed 1.15x • 6 Misses • Goal: 30</small>
+                                </button>
+                                <button type="button" class="segment-btn" data-diff="medium">
+                                    <span>Medium</span>
+                                    <small>Speed 1.65x • 5 Misses • Goal: 45</small>
+                                </button>
+                                <button type="button" class="segment-btn" data-diff="hard">
+                                    <span>Hard</span>
+                                    <small>Speed 2.25x • 4 Misses • Goal: 60+Digits</small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button id="btn-start-bubbles" class="btn-primary-action btn-mode-a">
+                            <span>Launch Bubbles Arena</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- MODE B: KEYMAGNET CARD -->
+                    <div class="mode-card" id="card-mode-magnet">
+                        <div class="card-badge mode-b-badge">MODE B</div>
+                        <div class="card-header">
+                            <div class="mode-visual-preview preview-magnet">
+                                <div class="target-key-demo">F</div>
+                                <div class="pulse-ring"></div>
+                            </div>
+                            <h2 class="mode-name">KeyMagnet: Keyboard Precision</h2>
+                            <p class="mode-description">
+                                Real-time touch-typing precision drills. An interactive visual keyboard illuminates magnetic targets while capturing your millisecond reaction latency.
+                            </p>
+                        </div>
+
+                        <div class="mode-feature-list">
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Interactive on-screen keyboard feedback</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Home-row &amp; targeted practice sets</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-check">✓</span>
+                                <span>Millisecond reaction time &amp; accuracy metrics</span>
+                            </div>
+                        </div>
+
+                        <!-- Mode Options -->
+                        <div class="mode-configuration">
+                            <div class="config-row">
+                                <label class="config-label" for="magnet-set-select">Practice Key Set:</label>
+                                <select id="magnet-set-select" class="custom-select">
+                                    <option value="homeRow" selected>Home Row (A, S, D, F, J, K, L, ;)</option>
+                                    <option value="topRow">Top Row (Q - P)</option>
+                                    <option value="bottomRow">Bottom Row (Z - M)</option>
+                                    <option value="alphabet">Full Alphabet (A - Z)</option>
+                                    <option value="numbers">Numbers &amp; Symbols (1 - 0)</option>
+                                </select>
+                            </div>
+
+                            <label class="config-label">Reaction Window (Difficulty):</label>
+                            <div class="segmented-control" id="magnet-difficulty-selector">
+                                <button type="button" class="segment-btn active" data-diff="easy">
+                                    <span>Easy</span>
+                                    <small>2.6s Window • 25 Targets • 5 Strikes</small>
+                                </button>
+                                <button type="button" class="segment-btn" data-diff="medium">
+                                    <span>Medium</span>
+                                    <small>1.6s Window • 30 Targets • 4 Strikes</small>
+                                </button>
+                                <button type="button" class="segment-btn" data-diff="hard">
+                                    <span>Hard</span>
+                                    <small>1.0s Window • 35 Targets • 3 Strikes</small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button id="btn-start-magnet" class="btn-primary-action btn-mode-b">
+                            <span>Launch KeyMagnet Arena</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- High Scores & Career Metrics Banner -->
+                <div class="career-metrics-bar">
+                    <div class="metric-block">
+                        <span class="metric-label">Bubbles Record</span>
+                        <span class="metric-value font-mono" id="best-bubbles-score">0 pts</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-block">
+                        <span class="metric-label">Best Reaction Latency</span>
+                        <span class="metric-value font-mono" id="best-reaction-time">--- ms</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-block">
+                        <span class="metric-label">KeyMagnet Record</span>
+                        <span class="metric-value font-mono" id="best-magnet-score">0 pts</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-block">
+                        <span class="metric-label">Overall Accuracy</span>
+                        <span class="metric-value font-mono" id="overall-career-accuracy">--- %</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 2: ACTIVE GAMEPLAY ARENA -->
+            <section id="view-game" class="view-panel">
+                <!-- Arena HUD -->
+                <div class="arena-hud">
+                    <!-- Left: Navigation & Mode Indicator -->
+                    <div class="hud-left">
+                        <button id="btn-back-home" class="hud-btn-back" title="Exit to Mode Selection">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                            <span>Dashboard</span>
+                        </button>
+                        <div class="active-mode-tag">
+                            <span id="hud-mode-name" class="font-bold">Mode</span>
+                            <button id="hud-difficulty-pill" class="pill-badge pill-badge-btn" title="Click to cycle difficulty (Easy, Medium, Hard)">Easy</button>
+                        </div>
+                    </div>
+
+                    <!-- Center: Primary Score & Mode Metrics -->
+                    <div class="hud-center">
+                        <div class="hud-score-display">
+                            <span class="hud-label">SCORE</span>
+                            <span id="hud-current-score" class="hud-score-number font-mono">0</span>
+                        </div>
+
+                        <!-- Universal Keypress Stats -->
+                        <div class="hud-stat-pill" title="Correct Keypresses">
+                            <span class="stat-name">CORRECT</span>
+                            <span id="hud-correct-count" class="font-mono success-text">0</span>
+                        </div>
+                        <div class="hud-stat-pill" title="Incorrect Keypresses &amp; Miss Penalties">
+                            <span class="stat-name">ERRORS</span>
+                            <span id="hud-incorrect-count" class="font-mono danger-text">0</span>
+                        </div>
+
+                        <!-- Bubbles HUD Specifics -->
+                        <div id="hud-bubbles-stats" class="hud-mode-specific">
+                            <div class="hud-stat-pill" title="Bubbles popped towards victory">
+                                <span class="stat-name">TARGET GOAL</span>
+                                <span id="hud-bubbles-progress" class="font-mono accent-text">0 / 30</span>
+                            </div>
+                            <div class="hud-stat-pill" title="Escaped bubbles and remaining survival lives">
+                                <span class="stat-name">MISSES (LIVES)</span>
+                                <div id="hud-misses-container" class="miss-pips-tray">
+                                    <span id="hud-miss-count" class="font-mono danger-text">0 / 6 (6 left)</span>
+                                </div>
+                            </div>
+                            <div class="hud-stat-pill" title="Dynamic bubble float speed">
+                                <span class="stat-name">SPEED</span>
+                                <span id="hud-speed-multiplier" class="font-mono accent-text">1.15x</span>
+                            </div>
+                            <div class="hud-stat-pill" title="Active combo streak multiplier">
+                                <span class="stat-name">STREAK</span>
+                                <span id="hud-streak-count" class="font-mono warning-text">0x</span>
+                            </div>
+                        </div>
+
+                        <!-- KeyMagnet HUD Specifics -->
+                        <div id="hud-magnet-stats" class="hud-mode-specific hidden">
+                            <div class="hud-stat-pill" title="Sequence targets completed">
+                                <span class="stat-name">PROGRESS</span>
+                                <span id="hud-magnet-progress" class="font-mono">0 / 25</span>
+                            </div>
+                            <div class="hud-stat-pill" title="Remaining reaction window for current target">
+                                <span class="stat-name">TIME LEFT</span>
+                                <span id="hud-magnet-time-left" class="font-mono warning-text">2.6s</span>
+                            </div>
+                            <div class="hud-stat-pill" title="Strike errors taken before game over">
+                                <span class="stat-name">STRIKES</span>
+                                <span id="hud-magnet-strikes" class="font-mono danger-text">0 / 5</span>
+                            </div>
+                            <div class="hud-stat-pill" title="Overall touch accuracy">
+                                <span class="stat-name">ACCURACY</span>
+                                <span id="hud-magnet-accuracy" class="font-mono">100%</span>
+                            </div>
+                            <div class="hud-stat-pill" title="Average millisecond reaction latency">
+                                <span class="stat-name">AVG LATENCY</span>
+                                <span id="hud-magnet-latency" class="font-mono accent-text">--- ms</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Direct Game Controls -->
+                    <div class="hud-right">
+                        <div class="controls-toolbar">
+                            <button id="btn-ctrl-start" class="ctrl-btn btn-success" title="Start game session">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                                <span>Start</span>
+                            </button>
+                            <button id="btn-ctrl-pause" class="ctrl-btn" title="Pause or Resume game">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <rect x="6" y="4" width="4" height="16"></rect>
+                                    <rect x="14" y="4" width="4" height="16"></rect>
+                                </svg>
+                                <span>Pause</span>
+                            </button>
+                            <button id="btn-ctrl-restart" class="ctrl-btn" title="Restart current game with clean state">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="23 4 23 10 17 10"></polyline>
+                                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                                </svg>
+                                <span>Restart</span>
+                            </button>
+                            <button id="btn-ctrl-reset" class="ctrl-btn btn-secondary" title="Reset all state without page reload">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                                    <path d="M3 3v5h5"></path>
+                                </svg>
+                                <span>Reset</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arena Status Toast Bar -->
+                <div class="arena-status-bar">
+                    <span id="arena-status-text">Ready. Press Start or any key to engage.</span>
+                </div>
+
+                <!-- ARENA CONTAINER: MODE A (BUBBLES) -->
+                <div id="bubbles-arena-wrapper" class="mode-arena-container">
+                    <div class="danger-boundary-line">
+                        <div class="boundary-label">
+                            <span class="laser-dot"></span>
+                            <span>CRITICAL ESCAPE CEILING • REACHING THIS COUNTS AS A MISS</span>
+                            <span class="laser-dot"></span>
+                        </div>
+                    </div>
+
+                    <div id="bubbles-active-arena" class="bubbles-field">
+                        <!-- Dynamic floating letter bubbles are injected and rendered here -->
+                    </div>
+
+                    <!-- Mobile / On-screen quick typing tray for touch users -->
+                    <div class="mobile-keyboard-bar">
+                        <div class="mobile-input-hint">Type matching letters on your keyboard or tap rising bubbles directly!</div>
+                    </div>
+                </div>
+
+                <!-- ARENA CONTAINER: MODE B (KEYMAGNET) -->
+                <div id="magnet-arena-wrapper" class="mode-arena-container hidden">
+                    <!-- Central Focal Target Card -->
+                    <div class="magnet-target-station">
+                        <div class="target-subhead">
+                            <span class="target-prompt">STRIKE KEY:</span>
+                            <span id="magnet-round-step" class="font-mono">1 / 25</span>
+                        </div>
+
+                        <div id="magnet-target-display" class="target-key-box">
+                            <span id="magnet-target-char" class="target-glyph">--</span>
+                            <div class="target-corner top-l"></div>
+                            <div class="target-corner top-r"></div>
+                            <div class="target-corner btm-l"></div>
+                            <div class="target-corner btm-r"></div>
+                        </div>
+
+                        <!-- Target Timer Bar & Countdown Text -->
+                        <div class="magnet-timer-track">
+                            <div id="magnet-timer-bar" class="magnet-timer-fill"></div>
+                        </div>
+                        <div id="magnet-timer-countdown" class="magnet-timer-countdown font-mono">2.6s remaining</div>
+
+                        <!-- Real-time Feedback Tag -->
+                        <div id="magnet-feedback-badge" class="feedback-badge">Ready</div>
+                    </div>
+
+                    <!-- Interactive Visible Keyboard Layout -->
+                    <div class="virtual-keyboard-section">
+                        <div class="keyboard-legend">
+                            <div class="legend-item"><span class="legend-dot target-dot"></span> Magnetic Target</div>
+                            <div class="legend-item"><span class="legend-dot correct-dot"></span> Correct Hit</div>
+                            <div class="legend-item"><span class="legend-dot error-dot"></span> Strike Error</div>
+                        </div>
+
+                        <div id="virtual-keyboard" class="virtual-keyboard-layout">
+                            <!-- Number Row -->
+                            <div class="vk-row" data-row="numbers">
+                                <button type="button" class="vk-key" data-key="1">1</button>
+                                <button type="button" class="vk-key" data-key="2">2</button>
+                                <button type="button" class="vk-key" data-key="3">3</button>
+                                <button type="button" class="vk-key" data-key="4">4</button>
+                                <button type="button" class="vk-key" data-key="5">5</button>
+                                <button type="button" class="vk-key" data-key="6">6</button>
+                                <button type="button" class="vk-key" data-key="7">7</button>
+                                <button type="button" class="vk-key" data-key="8">8</button>
+                                <button type="button" class="vk-key" data-key="9">9</button>
+                                <button type="button" class="vk-key" data-key="0">0</button>
+                                <button type="button" class="vk-key" data-key="-">-</button>
+                                <button type="button" class="vk-key" data-key="=">=</button>
+                            </div>
+
+                            <!-- Top Row (Q - P) -->
+                            <div class="vk-row" data-row="top">
+                                <button type="button" class="vk-key" data-key="Q">Q</button>
+                                <button type="button" class="vk-key" data-key="W">W</button>
+                                <button type="button" class="vk-key" data-key="E">E</button>
+                                <button type="button" class="vk-key" data-key="R">R</button>
+                                <button type="button" class="vk-key" data-key="T">T</button>
+                                <button type="button" class="vk-key" data-key="Y">Y</button>
+                                <button type="button" class="vk-key" data-key="U">U</button>
+                                <button type="button" class="vk-key" data-key="I">I</button>
+                                <button type="button" class="vk-key" data-key="O">O</button>
+                                <button type="button" class="vk-key" data-key="P">P</button>
+                            </div>
+
+                            <!-- Home Row (A - ;) with home bumps on F and J -->
+                            <div class="vk-row" data-row="home">
+                                <button type="button" class="vk-key" data-key="A">A</button>
+                                <button type="button" class="vk-key" data-key="S">S</button>
+                                <button type="button" class="vk-key" data-key="D">D</button>
+                                <button type="button" class="vk-key vk-home-bump" data-key="F">
+                                    <span>F</span>
+                                    <span class="tactile-notch"></span>
+                                </button>
+                                <button type="button" class="vk-key" data-key="G">G</button>
+                                <button type="button" class="vk-key" data-key="H">H</button>
+                                <button type="button" class="vk-key vk-home-bump" data-key="J">
+                                    <span>J</span>
+                                    <span class="tactile-notch"></span>
+                                </button>
+                                <button type="button" class="vk-key" data-key="K">K</button>
+                                <button type="button" class="vk-key" data-key="L">L</button>
+                                <button type="button" class="vk-key" data-key=";">;</button>
+                            </div>
+
+                            <!-- Bottom Row (Z - M, , .) -->
+                            <div class="vk-row" data-row="bottom">
+                                <button type="button" class="vk-key" data-key="Z">Z</button>
+                                <button type="button" class="vk-key" data-key="X">X</button>
+                                <button type="button" class="vk-key" data-key="C">C</button>
+                                <button type="button" class="vk-key" data-key="V">V</button>
+                                <button type="button" class="vk-key" data-key="B">B</button>
+                                <button type="button" class="vk-key" data-key="N">N</button>
+                                <button type="button" class="vk-key" data-key="M">M</button>
+                                <button type="button" class="vk-key" data-key=",">,</button>
+                                <button type="button" class="vk-key" data-key=".">.</button>
+                            </div>
+
+                            <!-- Space Row -->
+                            <div class="vk-row" data-row="space">
+                                <button type="button" class="vk-key vk-key-space" data-key=" ">
+                                    <span>SPACE BAR</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- RESULTS SCREEN MODAL -->
+        <div id="results-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-results-title">
+            <div class="modal-card">
+                <div class="modal-badge-container">
+                    <div id="results-grade-badge" class="grade-badge grade-s">S</div>
+                </div>
+
+                <div class="modal-header">
+                    <h2 id="modal-results-title" class="results-title">Session Complete!</h2>
+                    <p id="modal-results-reason" class="results-reason">All targets cleared with outstanding accuracy.</p>
+                </div>
+
+                <!-- Primary Big Score -->
+                <div class="results-primary-score">
+                    <span class="score-caption">FINAL SCORE</span>
+                    <span id="results-final-score" class="score-large font-mono">1,450</span>
+                    <span id="results-mode-badge" class="pill-badge">Bubbles • Medium</span>
+                </div>
+
+                <!-- Detailed Statistics Grid -->
+                <div class="stats-matrix">
+                    <div class="stat-cell">
+                        <span class="cell-label">Accuracy</span>
+                        <span id="results-accuracy" class="cell-value font-mono">98%</span>
+                    </div>
+                    <div class="stat-cell">
+                        <span class="cell-label">Correct Hits</span>
+                        <span id="results-correct" class="cell-value font-mono success-text">42</span>
+                    </div>
+                    <div class="stat-cell">
+                        <span class="cell-label">Incorrect Strikes</span>
+                        <span id="results-incorrect" class="cell-value font-mono danger-text">1</span>
+                    </div>
+                    <div class="stat-cell">
+                        <span class="cell-label">Max Streak</span>
+                        <span id="results-streak" class="cell-value font-mono warning-text">18x</span>
+                    </div>
+                    
+                    <!-- Dynamic mode specific cells -->
+                    <div class="stat-cell" id="results-custom-stat-1">
+                        <span class="cell-label" id="results-stat-1-label">Misses</span>
+                        <span id="results-stat-1-val" class="cell-value font-mono">2 / 5</span>
+                    </div>
+                    <div class="stat-cell" id="results-custom-stat-2">
+                        <span class="cell-label" id="results-stat-2-label">Avg Latency</span>
+                        <span id="results-stat-2-val" class="cell-value font-mono">312 ms</span>
+                    </div>
+                </div>
+
+                <!-- Performance Evaluation Verdict -->
+                <div class="results-verdict-box">
+                    <span class="verdict-icon">⚡</span>
+                    <p id="results-verdict-text">Superior finger coordination and peripheral tracking observed.</p>
+                </div>
+
+                <!-- Modal Action Buttons -->
+                <div class="modal-actions">
+                    <button id="btn-modal-restart" class="btn-action btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                        </svg>
+                        <span>Play Again</span>
+                    </button>
+                    <button id="btn-modal-home" class="btn-action btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <span>Change Mode</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOW TO PLAY / RULES MODAL -->
+        <div id="guide-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-guide-title">
+            <div class="modal-card guide-card">
+                <div class="guide-header">
+                    <h2 id="modal-guide-title">How to Play &amp; Operational Rules</h2>
+                    <button id="btn-close-guide" class="btn-close-modal" title="Close Guide">✕</button>
+                </div>
+
+                <div class="guide-content">
+                    <div class="guide-section">
+                        <h3><span class="pill-badge mode-a-badge">Mode A</span> Bubbles (Letter Recognition)</h3>
+                        <ul>
+                            <li><strong>Rising Bubbles:</strong> At least five letter bubbles float upward simultaneously.</li>
+                            <li><strong>Popping:</strong> Press the key on your keyboard matching any visible bubble to pop it and earn points.</li>
+                            <li><strong>Targeting Priority:</strong> If multiple identical letters are on screen, the bubble closest to the danger boundary pops first.</li>
+                            <li><strong>Win Condition:</strong> Pop the required target goal (Easy: 30, Medium: 45, Hard: 60) to achieve <strong>VICTORY</strong>.</li>
+                            <li><strong>Game-Over Condition:</strong> When escaped bubbles reach the miss limit (Easy: 6, Medium: 5, Hard: 4), the game ends.</li>
+                            <li><strong>Penalty:</strong> Pressing a key that does not match any active bubble triggers a <strong>-5 points penalty</strong>, breaks your streak, and shakes the arena.</li>
+                            <li><strong>Dynamic Escalation:</strong> As your score increases, bubble float speed automatically escalates.</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h3><span class="pill-badge mode-b-badge">Mode B</span> KeyMagnet (Keyboard Precision)</h3>
+                        <ul>
+                            <li><strong>Magnetic Target:</strong> The central target display and the on-screen keyboard illuminate the required key.</li>
+                            <li><strong>Practice Sets:</strong> Choose between Home Row (A, S, D, F, J, K, L, ;), Top Row, Bottom Row, Full Alphabet, or Numbers.</li>
+                            <li><strong>Reaction Window:</strong> Easy allows 2.6s per key, Medium 1.6s, and Hard 1.0s. Hitting keys within the fast bonus window awards extra points.</li>
+                            <li><strong>Win Condition:</strong> Successfully complete the target sequence (Easy: 25, Medium: 30, Hard: 35) to finish the drill.</li>
+                            <li><strong>Game-Over Condition:</strong> Running out of allowed strikes (Easy: 5, Medium: 4, Hard: 3) triggers Game Over.</li>
+                            <li><strong>Feedback:</strong> Correct keys flash green, wrong keys flash red with distinct audio cues.</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h3>🎮 Controls &amp; Accessibility</h3>
+                        <ul>
+                            <li><strong>Non-Reloading Controls:</strong> Start, Restart, and Reset operate smoothly without refreshing the webpage.</li>
+                            <li><strong>Mobile &amp; Touch:</strong> Virtual keys and bubbles can be tapped directly on touchscreens.</li>
+                            <li><strong>Audio:</strong> Toggle procedural sound effects on or off anytime via the header.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button id="btn-dismiss-guide" class="btn-action btn-primary">Got It, Let's Play!</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js"></script>
+    <script src="js/bubbles.js"></script>
+    <script src="js/keymagnet.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
